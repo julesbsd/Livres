@@ -4,6 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+Installation TailwindCSS : 
+
+npm install -D tailwindcss
+npx tailwindcss init
+
+
 In the project directory, you can run:
 
 ### `npm start`

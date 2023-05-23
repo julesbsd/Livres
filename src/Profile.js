@@ -6,11 +6,15 @@ export default function Profile() {
   const [user, setUser] = useState(null);
   const [repos, setRepos] = useState([]);
 
+  const token = process.env.REACT_APP_GITHUB_TOKEN;
+  /**
+   * Je n'arrive pas à faire fonctionner le token avec le .env
+   */
   useEffect(() => {
     const fetchUserAndRepos = async () => {
       const userResponse = await fetch('https://api.github.com/user', {
         headers: {
-          'Authorization': 'Bearer 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'
+          'Authorization': `Bearer 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`
         }
       });
       const userData = await userResponse.json();
@@ -18,7 +22,7 @@ export default function Profile() {
 
       const reposResponse = await fetch('https://api.github.com/user/repos', {
         headers: {
-          'Authorization': 'Bearer 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'
+          'Authorization': `Bearer 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`
         }
       });
       const reposData = await reposResponse.json();
@@ -27,6 +31,9 @@ export default function Profile() {
 
     fetchUserAndRepos();
   }, []);
+  console.log(user);
+  console.log("token")
+
   return (
     <>
       {user ? (

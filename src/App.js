@@ -8,7 +8,6 @@ function MyApp() {
     <React.StrictMode>
       <ThemeProvider>
         <Header />
-        <Footer />
       </ThemeProvider>
     </React.StrictMode>
   );

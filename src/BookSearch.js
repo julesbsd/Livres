@@ -6,16 +6,17 @@ import {
   CardBody,
   CardFooter,
   Typography,
+  Collapse,
 } from "@material-tailwind/react";
 import axios from 'axios';
 
 
 export default function BookSearch() {
+
   const [query, setQuery] = useState('');
   const [books, setBooks] = useState([]);
   const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen(!open);
+  const toggleOpen = () => setOpen(cur => !cur);
 
   const searchBooks = async () => {
     const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
@@ -34,6 +35,7 @@ export default function BookSearch() {
               searchBooks();
             }
           }} />
+        
         {!books ? ('Aucun livre') : (
           <div className="mt-6 max-h-[calc(100vh-280px)]">
             {books.map(book => (
@@ -50,7 +52,7 @@ export default function BookSearch() {
                         ) : (
                           'Aucune title disponible'
                         )
-                          
+
                         }
                       </Typography>
                       <Typography
@@ -70,15 +72,16 @@ export default function BookSearch() {
                       )}
                     </Typography>
                   </CardBody>
-                 
+                  <CardFooter>
+                    <Button> Collapse</Button>
+                  </CardFooter>
                 </Card>
               </div>
             ))}
           </div>
         )}
       </div>
-
-    </div>
+    </div >
   );
 }
 

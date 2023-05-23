@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Home from './Home';
 import Profile from './Profile';
 import Livres from './Livres';
-import SearchBook from './SearchBooks';
+import SearchBook from './BookSearch';
 import {
     Navbar,
     MobileNav,
@@ -15,7 +15,7 @@ import {
 export default function Example() {
     const [openNav, setOpenNav] = React.useState(false);
 
-    const [activeComponent, setActiveComponent] = useState("BookSearch");
+    const [activeComponent, setActiveComponent] = useState("Home");
 
     const handleButtonClick = (component) => {
         setActiveComponent(component);

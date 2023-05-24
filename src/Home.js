@@ -18,7 +18,7 @@ export default function Home() {
                     />
                 </Card>
                 <Typography variant="h2" color="blue-gray" className="mb-2">
-                    What is Material Tailwind
+                    What is Material Tailwind {process.env.REACT_APP_TEST}
                 </Typography>
                 <Typography color="gray" className="font-normal">
                     Can you help me out? you will get a lot of free exposure doing this

@@ -12,11 +12,12 @@ export default function Github_api() {
     const [user, setUser] = useState(null);
     const [repos, setRepos] = useState([]);
 
+    const token = process.env.REACT_APP_GITHUB_TOKEN;
     useEffect(() => {
         const fetchUserAndRepos = async () => {
             const userResponse = await fetch('https://api.github.com/user', {
                 headers: {
-                    'Authorization': 'Bearer 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'
+                    'Authorization': "Bearer ${token}"
                 }
             });
             const userData = await userResponse.json();
@@ -24,7 +25,7 @@ export default function Github_api() {
 
             const reposResponse = await fetch('https://api.github.com/user/repos', {
                 headers: {
-                    'Authorization': 'Bearer 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'
+                    'Authorization': "Bearer ${token}"
                 }
             });
             const reposData = await reposResponse.json();

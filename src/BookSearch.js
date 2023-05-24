@@ -35,7 +35,7 @@ export default function BookSearch() {
               searchBooks();
             }
           }} />
-        
+
         {!books ? ('Aucun livre') : (
           <div className="mt-6 max-h-[calc(100vh-280px)]">
             {books.map(book => (

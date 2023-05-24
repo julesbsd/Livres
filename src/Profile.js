@@ -14,7 +14,7 @@ export default function Profile() {
     const fetchUserAndRepos = async () => {
       const userResponse = await fetch('https://api.github.com/user', {
         headers: {
-          'Authorization': `Bearer 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`
+          'Authorization': 'Bearer ${token}'
         }
       });
       const userData = await userResponse.json();
@@ -22,8 +22,7 @@ export default function Profile() {
 
       const reposResponse = await fetch('https://api.github.com/user/repos', {
         headers: {
-          'Authorization': `Bearer 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`
-        }
+          'Authorization': 'Bearer ${token}'        }
       });
       const reposData = await reposResponse.json();
       setRepos(reposData);
@@ -32,7 +31,6 @@ export default function Profile() {
     fetchUserAndRepos();
   }, []);
   console.log(user);
-  console.log("token")
 
   return (
     <>
@@ -71,7 +69,7 @@ export default function Profile() {
                   <i className="material-icons text-blue-500">Projets github</i>
                   <span className="text-gray-600 ml-2">{repos.map((repo) => (
                     <a href={repo.html_url} key={repo.id} target="_blank"><li key={repo.id}>{repo.name}</li></a>
-                  ))}</span>
+                  ))} </span>
                 </div>
               </div>
             </div>
@@ -89,7 +87,7 @@ export default function Profile() {
                   className="object-cover w-32 h-32 rounded-full border-4 border-blue-500"
                 />
               </div>
-              <h1 className="text-3xl font-semibold mt-4">Jules Boismond</h1>
+              <h1 className="text-3xl font-semibold mt-4">Une erreur est survenue</h1>
               <h2 className="text-xl font-medium text-gray-600">julesbsd56@gmail.com</h2>
             </div>
             <div className="mt-6">
